@@ -1,69 +1,75 @@
-**Experiment 1: Image Sampling and Quantization**
+# Experiment 1: Image Sampling and Quantization
 
-**Objective**
+## Objective
+To study the effects of sampling (spatial resolution) and quantization (intensity resolution) on image quality.
 
-To study how sampling (spatial resolution) and quantization (intensity resolution) affect image quality in digital images.
+---
 
-1️⃣ Image Sampling
+## Concepts
 
-Reduces the number of pixels in an image.
+### 1. Image Sampling
+Reducing the number of pixels in an image.  
+Controls **spatial resolution** — fewer samples → image looks blocky or pixelated.
 
-Controls spatial resolution.
+### 2. Image Quantization
+Reducing the number of gray levels per pixel.  
+Controls **intensity resolution** — fewer levels → banding or posterization effect.
 
-Fewer samples → image becomes blocky or pixelated.
+---
 
-2️⃣ Image Quantization
+## Tools Used
+- OpenCV (`cv2`) – for image loading and resizing  
+- NumPy – for quantization operations  
+- Matplotlib (`matplotlib.pyplot`) – for visual comparisons  
 
-Reduces the number of gray levels (intensity values).
+---
 
-Controls intensity resolution.
+## Recommended Images
 
-Fewer levels → produces banding or posterization effects.
+Use a grayscale image with smooth gradients and details to clearly observe resolution and quantization effects.
 
-🧰 Tools & Libraries
+| Image | Reason |
+|--------|---------|
+| cameraman.tif | Standard test image with good mix of edges and smooth areas |
+| lena_gray.png | Smooth gradients and fine details |
+| building.png | Strong edges (clear sampling effects) |
+| peppers_gray.png | Useful for quantization effects |
 
-✅ OpenCV (cv2) – Image loading and resizing
+---
 
-✅ NumPy – Mathematical and quantization operations
+## Expected Output
 
-✅ Matplotlib.pyplot – Visualization and comparison
+| Operation | Observation |
+|------------|--------------|
+| Sampling ↓ | Image becomes blocky; edges appear jagged |
+| Quantization ↓ | Gradual tones lost; visible gray “steps” appear |
+| Sampling + Quantization | Combined loss of detail and smoothness |
 
-🧾 Expected Output
-Operation	Observation
-Sampling ↓	Image becomes blocky, edges jagged
-Quantization ↓	Gradual tones lost, visible gray “steps” appear
-Sampling + Quantization	Combined loss of detail and smoothness
-⚙️ Experiment Insights
-Concept	Description	Effect
-Sampling	Reduces spatial detail	Image becomes pixelated
-Quantization	Reduces gray levels	Image loses smooth shading
-Higher Resolution	More information stored	Better quality
-Lower Resolution	Less information stored	Poor quality, smaller file size
-✅ Step-by-Step Summary
-Step	Operation	Description
-1	Load grayscale image	Input test image
-2	Downsample	Reduce spatial resolution
-3	Quantize	Reduce intensity levels
-4	Visualize	Compare original, sampled, quantized, and combined results
-🧩 Suggested Test Image
+---
 
-Use standard grayscale test images such as:
+## Experiment Insights
 
-cameraman.tif
+| Concept | Description | Effect |
+|----------|--------------|--------|
+| Sampling | Reduces spatial detail | Image becomes pixelated |
+| Quantization | Reduces gray levels | Image loses smooth shading |
+| Higher Resolution | More information stored | Better quality |
+| Lower Resolution | Less information stored | Poor quality but smaller file size |
 
-lena_gray.gif
+---
 
-peppers.png
+## Summary
 
-These are classical images recommended in Chapter 2 – Digital Image Fundamentals of Gonzalez & Woods
+| Step | Operation | Description |
+|------|------------|--------------|
+| 1 | Load grayscale image | Input image |
+| 2 | Downsample | Reduce spatial resolution |
+| 3 | Quantize | Reduce gray levels |
+| 4 | Visualize | Compare all results |
 
-Gonzales,Woods-Digital.Image.Pr…
+---
 
-
-🧠 Conclusion
-
-Sampling controls spatial resolution → fewer pixels → less detail.
-
-Quantization controls intensity resolution → fewer gray levels → less tonal smoothness.
-
-Both directly influence perceived image quality, crucial in compression, transmission, and display systems.
+## Conclusion
+Sampling controls **spatial resolution** — fewer pixels mean less detail.  
+Quantization controls **intensity resolution** — fewer gray levels mean less tonal smoothness.  
+Both directly affect image quality and are fundamental to image compression and display technology.
